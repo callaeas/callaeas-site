@@ -39,10 +39,15 @@ pairing of two faces hoping to look related.
 |---|---|---|
 | **Brand** `.brand` | `MONO 0, CASL 0, wght 860, slnt 0, CRSV 0` | `clamp(3.2rem, 11vw, 6.6rem)`, `line-height .98`, `letter-spacing -.02em` |
 | **Tagline** `.tagline` | per-letter ramp (below) | one line, `clamp(1.2rem, 6vw, 2.65rem)`, `white-space:nowrap`, gradient text |
-| **Body prose** `body` | `MONO 0, CASL 0.32, wght 400, slnt 0, CRSV 0` | `line-height 1.62` |
-| **Labels** `h2` | `MONO 1, CASL 0, wght 560, slnt 0, CRSV 0` | `0.76rem`, uppercase, `letter-spacing .14em`, `--accent` |
+| **Pitch** `.pitch` | inherits body (`MONO 0, CASL 0.32, wght 400`) | `1.125rem` — the only prose on the page, standfirst size, `max-width 46ch` |
+| **Lead-in** `.hello` | inherits body (`MONO 0, CASL 0.32, wght 400`) | `1.05rem`, `--ink-soft` — opens the contact pair; no label above it |
 | **Address** `.contact-line` | `MONO 1, CASL 0, wght 480, slnt 0, CRSV 0` | `1.1rem` |
 | **Footer** `footer` | `MONO 1, CASL 0, wght 420, slnt 0, CRSV 0` | `0.8rem`, `--ink-soft` |
+
+There are no uppercase section labels any more — the **Casual→Mono register change does the
+labelling**: prose (pitch, lead-in) speaks in lightly-Casual Linear, and the moment the page
+turns to business (the address, the colophon) it snaps onto the mono grid, the same move the
+tagline makes at "untangled".
 
 **The tagline ramp.** "digital spaghetti, untangled" is split into per-letter `<span>`s whose
 axes interpolate left→right so every letter is calmer than the last:
@@ -102,14 +107,17 @@ per-letter animation breaks the gradient text-clip — see CLAUDE.md.)
 ## Voice & copy
 
 Plain, direct, a little dry-witty. British spelling. Short sentences. Name the mess, then the
-resolution. Examples already on the page:
+resolution. The page carries exactly one paragraph of prose (the pitch) and one dry beat
+(the contact lead-in):
 
-> We come into digital businesses with a lot going on — product, tech, and the commercial
-> knots in between — and make sense of the mess.
+> Digital businesses get messy — the product, the tech, and the commercial knots in between
+> that nobody quite owns. We come in, make sense of it, and get things launched.
 
-> We come in, make sense of it, and get things launched.
+> This bit, at least, is simple.
 
 Avoid jargon and hype. The tagline carries the personality; the body is calm and confident.
+One paragraph is the budget — resist adding a second. The lead-in is the page's one small
+joke below the tagline; don't add further wit elsewhere.
 
 ---
 
@@ -129,6 +137,19 @@ Avoid jargon and hype. The tagline carries the personality; the body is calm and
 
 Newest first. Short "why"s so future changes have context.
 
+- **2026-08 · One sheet.** Merged the two blurbs into a single pitch, deleted the uppercase
+  labels and both mid-page dividers, and recomposed the page as one vertically-centred card
+  (flex-column body, auto-margin centring) with a colophon footer at the viewport base. The
+  page had grown into three disconnected islands over successive edits; now brand → tagline →
+  pitch → contact read as one typographic object, and the Casual→Mono register change does
+  the labelling the h2s used to do. The one surviving hairline rule closes the sheet above
+  the copyright. Two-strophe spacing: tagline→pitch `clamp(28px, 5svh, 44px)`, then the
+  page's one big gap pitch→lead-in `clamp(36px, 7svh, 64px)`, with the lead-in and address
+  bound tight (8px). `id="contact"` moved onto the lead-in so inbound anchors still land.
+- **2026-08 · `.wrap` gains `width: 100%`.** Its instances are now flex items (body/main are
+  flex columns), and a flex item with auto side margins shrinks to fit-content — the footer
+  collapsed to the width of its own text and fell off the shared left axis. `width: 100%`
+  (capped by the existing `max-width: 700px`) restores stretch.
 - **2026-07 · Document the system.** Added `CLAUDE.md` + this file so the design language and
   working conventions live in the repo, not just in the CSS.
 - **2026-07 · Unify the whole page on Recursive; prose Linear+Casual, chrome Mono.** The body
