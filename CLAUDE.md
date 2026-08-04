@@ -26,9 +26,13 @@ custom domain).
    vw-based `clamp()` (`font-size: clamp(1.2rem, 6vw, 2.65rem)`). If you add/lengthen it,
    re-check the 320px fit; shrink the clamp min before you ever let it wrap.
 2. **`.wrap` sets horizontal padding ONLY**, via longhands (`padding-left/right`). Never give
-   `.wrap` a `padding` shorthand — it will zero out the vertical padding on `.hero`,
-   `section`, and `footer` (a class selector beats those element selectors). Set vertical
-   padding on those with longhands too. This cascade collision has bitten the layout twice.
+   `.wrap` a `padding` shorthand — it would clobber `footer`'s vertical padding outright
+   (class beats element selector), and it only spares `.card`'s by accident of source order
+   (`.card` is declared after `.wrap`), which nothing should rely on. Set vertical padding on
+   those with longhands too. This cascade collision has bitten the layout twice. **Also keep
+   `width: 100%` on `.wrap`**: body and main are flex columns, so `.wrap` instances are flex
+   items, and a flex item with auto side margins shrinks to fit-content without it (the
+   footer once collapsed to the width of its own copyright line).
 3. **Don't animate the tagline per-letter.** The tagline is a gradient clipped to text
    (`background-clip: text`). Animating `opacity`/`transform` on the individual `<span>`
    letters makes each glyph composite separately and **lose the clipped gradient → invisible
@@ -43,7 +47,7 @@ custom domain).
 One type system (**Recursive**), used across its axes:
 
 - **Prose** → Recursive **Linear** with a touch of Casual (`CASL 0.32`).
-- **Structural "chrome"** (section labels, the contact address, the footer) → Recursive
+- **Structural "chrome"** (the contact address, the footer) → Recursive
   **Mono** (`MONO 1`) — the "engineered/system" voice that echoes the tagline resolving onto
   the mono grid.
 
