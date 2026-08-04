@@ -29,7 +29,7 @@ pairing of two faces hoping to look related.
 **The rule:**
 
 - **Prose → Recursive Linear, lightly Casual.** Warm but readable.
-- **Structural "chrome" → Recursive Mono.** Section labels, the contact address, the footer.
+- **Structural "chrome" → Recursive Mono.** The contact address and the footer.
   Monospace is the "engineered / shipped-code" voice — and it rhymes with the tagline
   resolving onto the mono grid at "untangled". Product-and-technology, in the type.
 
@@ -75,7 +75,7 @@ Tokens are CSS custom properties on `:root`, redefined under
 | `--ink-soft` | `#4d5a6b` | `#a3aab6` | body / muted text |
 | `--paper` | `#f6f5f1` | `#171c24` | background (warm paper) |
 | `--line` | `#dcdad2` | `#2c3440` | hairline rules |
-| `--accent` | `#2547d0` | `#7d95f5` | links, labels — the "house indigo" |
+| `--accent` | `#2547d0` | `#7d95f5` | links — the "house indigo" |
 | `--warm` | `#b5670c` | `#f6a63c` | tagline gradient: warm end (amber) |
 | `--warm-mid` | `#9a4a5f` | `#cf7a9e` | tagline gradient: rose bridge |
 | `--cool` | `#2547d0` | `#7d95f5` | tagline gradient: cool end (= `--accent`) |

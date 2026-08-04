@@ -39,7 +39,7 @@
   }
   main { display: flex; flex-direction: column; flex: 1 0 auto; }
   /* .wrap controls horizontal gutter only (longhands) so it never clobbers the
-     vertical padding set on .hero / section / footer via the cascade. */
+     vertical padding set on .card / footer via the cascade. */
   /* width:100% matters: .wrap children are flex items now, and their auto side
      margins would otherwise shrink them to fit-content and break the shared left axis */
   .wrap { width: 100%; max-width: 700px; margin: 0 auto; padding-left: 24px; padding-right: 24px; }
@@ -104,6 +104,7 @@
     font-size: 1.125rem;
     color: var(--ink-soft);
     max-width: 46ch;
+    text-wrap: pretty; /* progressive enhancement: avoids a one-word widow around 375px */
   }
 
   /* the turn to the second strophe: the page's one big gap, then the contact
