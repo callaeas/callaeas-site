@@ -1,0 +1,28 @@
+# Nothing here needs a build step — this file exists so local scratch work
+# (e.g. the `npm i playwright-core` verification setup in CLAUDE.md, or a
+# local copy of index.html with self-hosted fonts) can never be committed
+# to what is a PUBLIC repo by an over-eager `git add -A`.
+
+# Local verification scratch (Playwright, downloaded webfonts, screenshots)
+node_modules/
+package.json
+package-lock.json
+*.woff2
+*.png
+*.jpg
+*.jpeg
+index.local.html
+fonts.local.css
+
+# Environment / secrets — should never exist here, belt and braces
+.env
+.env.*
+*.pem
+*.key
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
